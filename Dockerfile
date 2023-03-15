@@ -5,10 +5,10 @@ WORKDIR /app
 COPY build.gradle settings.gradle gradlew /app/
 COPY gradle /app/gradle
 # Download and install Gradle
-RUN ./gradlew --version
+RUN ./gradle --version
 # Copy the project files
 COPY . /app
 # Build the project
-RUN ./gradlew build
+RUN ./gradle build
 # Set the startup command
 CMD ["java", "-jar", "build/libs/message.jar"]
